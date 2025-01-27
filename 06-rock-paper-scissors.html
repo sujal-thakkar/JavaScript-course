@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+  <p>Rock Paper Scissors</p>
+  <p>
+    <button onclick="
+      rock();
+    ">Rock</button>
+
+    <button onclick="
+      paper();
+    ">Paper</button>
+
+    <button onclick="
+      scissors();
+    ">Scissors</button>
+  </p>
+
+
+  <script>
+    function pickMove(moves) {
+      let randomIndex = Math.floor(Math.random() * moves.length);
+      return moves[randomIndex];
+    }
+    const moves = ['rock', 'paper', 'scissors'];
+
+    function rock() {
+      let computerMove = pickMove(moves);
+
+      if(computerMove === 'rock') 
+        alert(`You picked Rock. Computer picked Rock. Tie!`);
+      else if(computerMove === 'paper') 
+        alert(`You picked Rock. Computer picked Paper. You Lose!`);
+      else alert(`You picked Rock. Computer picked Scissors. You win!`);
+    }
+
+    function paper() {
+      let computerMove = pickMove(moves);
+
+      if(computerMove === 'rock') 
+        alert(`You picked Paper. Computer picked Rock. You win!`);
+      else if(computerMove === 'paper') 
+        alert(`You picked Paper. Computer picked Paper. Tie!`);
+      else alert(`You picked Paper. Computer picked Scissors. You Lose!`);
+    }
+
+    function scissors() {
+      let computerMove = pickMove(moves);
+
+      if(computerMove === 'rock') 
+        alert(`You picked Scissors. Computer picked Rock. You Lose!`);
+      else if(computerMove === 'paper') 
+        alert(`You picked Scissors. Computer picked Paper. You win!`);
+      else alert(`You picked Scissors. Computer picked Scissors. Tie!`);
+    }
+    
+  </script>
+</body>
+</html>

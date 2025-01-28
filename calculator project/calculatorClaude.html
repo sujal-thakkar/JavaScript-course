@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .display {
+      background-color: #fff;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      text-align: right;
+      font-size: 24px;
+      min-height: 40px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #666;
+      color: white;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #777;
+    }
+
+    .operator {
+      background-color: #ff9500;
+    }
+
+    .operator:hover {
+      background-color: #ffaa33;
+    }
+
+    .equals {
+      background-color: #2ecc71;
+    }
+
+    .equals:hover {
+      background-color: #27ae60;
+    }
+
+    .clear {
+      background-color: #e74c3c;
+    }
+
+    .clear:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button class="operator" onclick="setOperation('/')">/</button>
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button class="operator" onclick="setOperation('*')">×</button>
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button class="operator" onclick="setOperation('-')">-</button>
+      <button onclick="appendNumber('0')">0</button>
+      <button onclick="appendDecimal()">.</button>
+      <button class="equals" onclick="calculate()">=</button>
+      <button class="operator" onclick="setOperation('+')">+</button>
+    </div>
+  </div>
+
+  <script>
+    let currentInput = '0';
+    let previousInput = '';
+    let operation = null;
+    let shouldResetDisplay = false;
+
+    const display = document.getElementById('display');
+
+    function updateDisplay() {
+      display.textContent = currentInput;
+    }
+
+    function appendNumber(number) {
+      if (currentInput === '0' || shouldResetDisplay) {
+        currentInput = number;
+        shouldResetDisplay = false;
+      } else {
+        currentInput += number;
+      }
+      updateDisplay();
+    }
+
+    function appendDecimal() {
+      if (!currentInput.includes('.')) {
+        currentInput += '.';
+        updateDisplay();
+      }
+    }
+
+    function clearDisplay() {
+      currentInput = '0';
+      previousInput = '';
+      operation = null;
+      updateDisplay();
+    }
+
+    function setOperation(op) {
+      if (operation !== null) {
+        calculate();
+      }
+      previousInput = currentInput;
+      operation = op;
+      shouldResetDisplay = true;
+    }
+
+    function calculate() {
+      if (operation === null || shouldResetDisplay) return;
+
+      let result;
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+
+      switch (operation) {
+        case '+':
+          result = prev + current;
+          break;
+        case '-':
+          result = prev - current;
+          break;
+        case '*':
+          result = prev * current;
+          break;
+        case '/':
+          if (current === 0) {
+            alert('Cannot divide by zero!');
+            clearDisplay();
+            return;
+          }
+          result = prev / current;
+          break;
+        default:
+          return;
+      }
+
+      // Round to avoid floating point precision issues
+      currentInput = Math.round(result * 1000000) / 1000000;
+      operation = null;
+      previousInput = '';
+      updateDisplay();
+    }
+  </script>
+</body>
+
+</html>

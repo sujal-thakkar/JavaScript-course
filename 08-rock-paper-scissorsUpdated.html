@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock-Paper-Scissors</title>
+  <title>Rock-Paper-Scissors Modified</title>
 </head>
 <body>
   <p>Rock Paper Scissors</p>
@@ -22,18 +22,15 @@
 
     <button onclick="
       resetScore(score);
-    ">
-      Reset Score
-    </button>
+    ">Reset Score</button>
   </p>
 
-  
-
-
   <script>
+
     const moves = ['rock', 'paper', 'scissors'];
     
-    const score = {
+    let score = JSON.parse(localStorage.getItem('score')) ||  
+    {
       wins: 0,
       loses: 0,
       ties: 0
@@ -51,6 +48,7 @@
         myMove === 'scissors' && computerMove === 'scissors'
       ) {
         score.ties++;
+        localStorage.setItem('score', JSON.stringify(score));
         return 'Tie!';
       }
       else if(
@@ -59,10 +57,12 @@
         myMove === 'scissors' && computerMove === 'paper'
       ) {
         score.wins++;
+        localStorage.setItem('score', JSON.stringify(score));
         return 'You win!';
       }
       else {
         score.loses++;
+        localStorage.setItem('score', JSON.stringify(score));
         return 'You Lose mf!';
       }
     }
@@ -78,7 +78,8 @@
       score.wins = 0;
       score.loses = 0;
       score.ties = 0;
-      
+      alert('Score is reset');
+      localStorage.removeItem('score');
     }
 
     function rock() {
@@ -96,6 +97,7 @@
       printScore('scissors', computerMove, score);
     }
     
+
   </script>
 </body>
 </html>

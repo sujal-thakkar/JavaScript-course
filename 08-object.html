@@ -12,14 +12,33 @@
   <script>
 
     const products = {
-      item: 'Panty',
+      item: 'Shirt',
       price: '₹250',
       color: 'pink',
-      quantity: 2
+      quantity: 2,
+      ratings: {
+        4.5: 84,
+        3: 443,
+        2.5: 12,
+        1: 2
+      },
+      'delivery-time': '5 days',
+      greet: function greet() {
+        console.log('Hello there!');
+      }
     }
-
+    /*
     console.log(products);
     console.log(products.item);
+    products.greet(); */
+
+    console.log(typeof console.log); // console is an object. In which there exists a function called log(), a function, declared inside of an object is called method.
+    
+    console.log(JSON.stringify(products));
+
+    const JSONString = JSON.stringify(products);
+
+    console.log(JSON.parse(JSONString));
     
   </script>
 </body>

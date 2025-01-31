@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Objects</title>
 </head>
+
 <body>
-  
+
 
 
   <script>
 
-    const products = {
+    /* const products = {
       item: 'Shirt',
       price: '₹250',
       color: 'pink',
@@ -27,10 +29,10 @@
         console.log('Hello there!');
       }
     }
-    /*
+    
     console.log(products);
     console.log(products.item);
-    products.greet(); */
+    products.greet();
 
     console.log(typeof console.log); // console is an object. In which there exists a function called log(), a function, declared inside of an object is called method.
     
@@ -38,8 +40,25 @@
 
     const JSONString = JSON.stringify(products);
 
-    console.log(JSON.parse(JSONString));
+    console.log(JSON.parse(JSONString)); */
+
+    const object1 = {
+      message: 'Hello'
+    };
+
+    const object2 = object1;
+
+    console.log(object1 === object2); // true bcz both points to same reference.
     
+    const object3 = {
+      message: 'Hello'
+    }
+
+    console.log(object1 === object3); // false bcz both are pointing to different memory locations.
+    
+    
+
   </script>
 </body>
+
 </html>

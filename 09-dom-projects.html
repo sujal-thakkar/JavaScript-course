@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+</head>
+<body>
+    <!-- project1 -->
+    <p>YouTube Subscribe Button</p>
+    <button onclick="
+        subscribe();
+        "class="js-sub-btn"> 
+        Subscribe
+    </button>
+    <br><br>
+
+    <!-- project2 -->
+    <p>Rock Paper Scissors</p>
+    <a target="_blank" href="/09-rock-paper-scissors-updated.html">Click here</a>
+    <br><br>
+
+    <!-- project3 -->
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orderes over $40 = FREE shipping.</p>
+    <input 
+        class="js-order-cost" 
+        type="text" 
+        name="orderCost" 
+        placeholder="Cost of order" 
+        onkeydown="
+            if(event.key === 'Enter') {
+                calculateCost();
+            }
+    ">
+    <button onclick="
+        calculateCost();
+        ">Calculate
+    </button>
+    <p class="js-total-cost"></p>
+
+    <script>
+
+        function subscribe() {
+            const subBtnElem = document.body.querySelector('.js-sub-btn');
+            subBtnElem.innerText = (subBtnElem.innerText === 'Subscribe')? 'Unsubscribe' : 'Subscribe';
+        }
+        
+        function calculateCost() {
+            const orderCost = document.body.querySelector('.js-order-cost');
+
+            const totalCost = document.body.querySelector('.js-total-cost');
+
+            const orderCostNum = Number(orderCost.value);
+            console.log(orderCostNum);
+
+            if(orderCostNum < 40) totalCost.innerText = `$${orderCostNum + 10}`;
+            else totalCost.innerText = `$${orderCostNum}`;
+        } 
+
+    </script>
+</body>
+</html>

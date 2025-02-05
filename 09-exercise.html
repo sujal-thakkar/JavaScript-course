@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-Exercise</title>
+</head>
+<body>
+    <!-- 1 -->
+    <p>1.</p>
+    <button class="js-btn">9a</button>
+    <button class="js-btn-2">9b</button>
+
+    <!-- 2 -->
+    <p>2.</p>
+    <button class="js-btn-head" onclick="
+        printMove('Heads');
+        ">Heads
+    </button>
+    <button class="js-btn-tails" onclick="
+        printMove('Tails');
+        ">Tails
+    </button>
+    <p class="js-result"></p>
+
+    <!-- 3 -->
+    <p>3.</p>
+    <input type="text" placeholder="Name" class="js-input-name" onkeydown="
+        EnterKeyEvent(event);
+    ">
+
+    <button class="js-btn-submit" onclick="
+        displayName();
+        ">Submit
+    </button>
+
+    <p class="js-name-para"></p>
+
+    <!-- 4 -->
+    <p>4.</p>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orderes over $40 = FREE shipping.</p>
+    <input 
+        class="js-order-cost" 
+        type="text" 
+        name="orderCost" 
+        placeholder="Cost of order" 
+        onkeydown="
+            if(event.key === 'Enter') {
+                calculateCost();
+            }
+    ">
+    <button onclick="
+        calculateCost();
+        ">Calculate
+    </button>
+    <p class="js-total-cost"></p>
+
+    <!-- 5 -->
+     <input type="text" placeholder="Type Something" class="js-input-text" onkeyup="
+        printInputInPage();
+     ">
+     <p class="js-text-para"></p>
+
+    <script>
+
+        // 1
+        console.log(document.querySelector('.js-btn').innerHTML)
+        document.querySelector('.js-btn-2').innerHTML = '9b done!'
+
+        // 2
+        const resultPara = document.querySelector('.js-result');
+        function printMove(move) {
+            resultPara.innerHTML = `You choose: ${move}`;
+        }
+
+        //3
+        const inputName = document.querySelector('.js-input-name');
+        const namePara = document.querySelector('.js-name-para');
+        function displayName() {
+            if(inputName.value) namePara.innerHTML = `Your name is: ${inputName.value}`;
+            else namePara.innerHTML = 'Please enter a name!';
+        }
+        function EnterKeyEvent(event) {
+            if(event.key === 'Enter') displayName();
+        }
+
+        //4
+        function calculateCost() {
+            const orderCost = document.body.querySelector('.js-order-cost');
+
+            const totalCost = document.body.querySelector('.js-total-cost');
+
+            const orderCostNum = Number(orderCost.value) * 100;
+
+            if(orderCostNum < 40 * 100) totalCost.innerText = `$${(orderCostNum + 10*100) / 100}`;
+            else totalCost.innerText = `$${orderCostNum / 100}`;
+        } 
+
+        //5
+        const inputText = document.querySelector('.js-input-text');
+        const inputTextPara = document.querySelector('.js-text-para');
+        function printInputInPage() {
+            inputTextPara.innerHTML = inputText.value;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+
+    <style>
+        body {
+            background-color: #191919;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 30px;
+        }
+        .game-title, .result-text {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .moves-btn {
+            padding: 30px;
+            background-color: #191919;
+            color: #fff;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-right: 10px;
+            font-size: 50px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        .reset-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .moves-text {
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p class="game-title">Rock Paper Scissors</p>
+    <p>
+        <button onclick="
+      rock();
+    " class="rock-btn moves-btn js-rock">🪨</button>
+
+        <button onclick="
+      paper();
+    " class="paper-btn moves-btn js-paper">📄</button>
+
+        <button onclick="
+      scissors();
+    " class="scissors-btn moves-btn js-scissors">✂️</button>
+
+    <p class="js-result result-text"></p>
+    <p class="js-moves moves-text"></p>
+    <p class="js-score"></p>
+
+    <button onclick="
+      resetScore(score);
+    " class="reset-btn">Reset Score</button>
+    </p>
+
+    <script>
+
+        const resultPara = document.body.querySelector('.js-result');
+        const movesPara = document.body.querySelector('.js-moves');
+        const scorePara = document.body.querySelector('.js-score');
+
+        const rockEmo = document.body.querySelector('.js-rock');
+        const paperEmo = document.body.querySelector('.js-paper');
+        const scissorsEmo = document.body.querySelector('.js-scissors');
+
+        const moves = ['🪨', '📄', '✂️'];
+
+        let score = JSON.parse(localStorage.getItem('score')) ||
+        {
+            wins: 0,
+            loses: 0,
+            ties: 0
+        };
+
+        scorePara.innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
+
+        function pickMove(moves) {
+            let randomIndex = Math.floor(Math.random() * moves.length);
+            return moves[randomIndex];
+        }
+
+        function result(myMove, computerMove) {
+            if (
+                myMove === '🪨' && computerMove === '🪨' ||
+                myMove === '📄' && computerMove === '📄' ||
+                myMove === '✂️' && computerMove === '✂️'
+            ) {
+                score.ties++;
+                localStorage.setItem('score', JSON.stringify(score));
+                return 'Tie!';
+            }
+            else if (
+                myMove === '🪨' && computerMove === '✂️' ||
+                myMove === '📄' && computerMove === '🪨' ||
+                myMove === '✂️' && computerMove === '📄'
+            ) {
+                score.wins++;
+                localStorage.setItem('score', JSON.stringify(score));
+                return 'You win!';
+            }
+            else {
+                score.loses++;
+                localStorage.setItem('score', JSON.stringify(score));
+                return 'You Lose mf !';
+            }
+        }
+
+        function printScore(myMove, computerMove, score) {
+            resultPara.innerHTML = `${result(myMove, computerMove)}`;
+            movesPara.innerHTML = `You ${myMove} ${computerMove} Computer`;
+            scorePara.innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
+        }
+
+        function resetScore(score) {
+            score.wins = 0;
+            score.loses = 0;
+            score.ties = 0;
+            localStorage.removeItem('score');
+            resultPara.innerHTML = '';
+            movesPara.innerHTML = '';
+            scorePara.innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
+        }
+
+        function rock() {
+            let computerMove = pickMove(moves);
+            printScore(rockEmo.innerText, computerMove, score);
+        }
+
+        function paper() {
+            let computerMove = pickMove(moves);
+            printScore(paperEmo.innerText, computerMove, score);
+        }
+
+        function scissors() {
+            let computerMove = pickMove(moves);
+            printScore(scissorsEmo.innerText, computerMove, score);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .subscribe-btn {
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 35px;
+        }
+        .order-cost-input, .calculate-btn {
+            padding: 12px 15px;
+            font-size: 16px;
+        }
+        .calculate-btn {
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .is-subscribed {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- project1 -->
+    <p>YouTube Subscribe Button</p>
+    <button onclick="
+        subscribe();
+        "class="js-sub-btn subscribe-btn"> 
+        Subscribe
+    </button>
+    
+    <!-- project3 -->
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input 
+    class="js-order-cost order-cost-input" 
+    type="text" 
+    name="orderCost" 
+    placeholder="Cost of order" 
+    onkeydown="
+            if(event.key === 'Enter') {
+                calculateCost();
+            }
+    ">
+    <button class="calculate-btn" onclick="
+        calculateCost();
+        ">Calculate
+    </button>
+    <p class="js-total-cost" style="margin-bottom: 50px;"></p>
+
+    <p>Rock Paper Scissors</p>
+    <a target="_blank" href="/10-rock-paper-scissors-final.html">Click here</a>
+    
+
+    <script>
+
+        function subscribe() {
+            const subBtnElem = document.body.querySelector('.js-sub-btn');
+            if(subBtnElem.innerText === 'Subscribe') {
+                subBtnElem.innerText = 'Subscribed';
+                subBtnElem.classList.add('is-subscribed');
+                // subBtnElem.style.backgroundColor = '#f0f0f0';
+                // subBtnElem.style.color = '#000';
+            } else {
+                subBtnElem.innerText = 'Subscribe';
+                subBtnElem.classList.remove('is-subscribed');
+                // subBtnElem.style.backgroundColor = '#000';
+                // subBtnElem.style.color = '#fff';
+            }
+        }
+        
+        function calculateCost() {
+            const orderCost = document.body.querySelector('.js-order-cost');
+
+            const totalCost = document.body.querySelector('.js-total-cost');
+
+            const orderCostNum = Number(orderCost.value) * 100;
+
+            if(orderCostNum < 40 * 100) totalCost.innerText = `$${(orderCostNum + 1000)/100}`;
+            else totalCost.innerText = `$${orderCostNum/100}`;
+        } 
+
+    </script>
+</body>
+</html>

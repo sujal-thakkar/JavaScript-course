@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-exercise</title>
+    <link rel="stylesheet" href="styles/10-exercise.css">
+    <link rel="stylesheet" href="styles/10-dom-projects.css">
+</head>
+<body>
+    <!-- 1 -->
+    <p>1.</p>
+    <p>Amazon Button</p>
+    <button class="cart-btn">Add to Cart</button>
+    <p>Uber Buttons</p>
+    <button class="req-btn">Request now</button>
+    <button class="schedule-later-btn">Schedule for later</button>
+
+    <!-- 2 -->
+    <p>2.</p>
+    <button class="js-button" onclick="isClassPresent('js-button')">Test</button> <p style="display: inline;">(check console for the result, after clicking)</p>
+
+    <!-- 3 -->
+    <p>3.</p>
+    <button class="ex-3-buttons gaming-btn" onclick="toggle(gamingBtn)">Gaming</button>
+    <button class="ex-3-buttons music-btn" onclick="toggle(musicBtn)">Music</button>
+    <button class="ex-3-buttons tech-btn" onclick="toggle(techBtn)">Tech</button>
+
+    <!-- 4 -->
+    <p>4.</p>
+    <button class="ex-4-buttons cricket-btn" onclick="selectToggled(cricketBtn)">Cricket</button>
+    <button class="ex-4-buttons devotional-btn" onclick="selectToggled(devotionalBtn)">Devotional</button>
+    <button class="ex-4-buttons software-btn" onclick="selectToggled(softwareBtn)">Software</button>
+
+    <!-- 5 -->
+    <p>5.</p>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input 
+        class="js-order-cost order-cost-input" 
+        type="text" 
+        name="orderCost" 
+        placeholder="Cost of order" 
+        onkeydown="
+        if(event.key === 'Enter') calculateCost();
+    ">
+    <button class="calculate-btn" onclick="
+        calculateCost();
+        ">Calculate
+    </button>
+    <p class="js-total-cost" style="margin-bottom: 50px;"></p>
+
+    <script src="scripts/10-exercise.js"></script>
+    <script src="scripts/10-dom-projects.js"></script>
+</body>
+</html>

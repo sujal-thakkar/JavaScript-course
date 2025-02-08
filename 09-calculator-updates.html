@@ -4,94 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>09-Calculator-updated</title>
 </head>
 
 <body>
     <p>CALCULATOR</p>
-
-    <p class="js-calculation">likho bc</p>
+    
+    <p class="js-calculation calculation-para">likho bc</p>
 
     <P>
-        <button onclick="
-    calculation = updateCalculation(calculation, '1');
-    ">1</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '1');
+        ">1</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '2');
-    ">2</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '2');
+        ">2</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '3');
-    ">3</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '3');
+        ">3</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, ' + ');
-    ">+</button>
+        <button class="btn btn-orange" onclick="
+        calculation = updateCalculation(calculation, ' + ');
+        ">+</button>
     </P>
 
     <p>
-        <button onclick="
-    calculation = updateCalculation(calculation, '4');
-    ">4</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '4');
+        ">4</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '5');
-    ">5</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '5');
+        ">5</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '6');
-    ">6</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '6');
+        ">6</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, ' - ');
-    ">-</button>
+        <button class="btn btn-orange" onclick="
+        calculation = updateCalculation(calculation, ' - ');
+        ">-</button>
     </p>
 
     <p>
-        <button onclick="
-    calculation = updateCalculation(calculation, '7');
-    ">7</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '7');
+        ">7</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '8');
-    ">8</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '8');
+        ">8</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '9');
-    ">9</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '9');
+        ">9</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, ' * ');
-    ">*</button>
+        <button class="btn btn-orange" onclick="
+        calculation = updateCalculation(calculation, ' * ');
+        ">*</button>
     </p>
 
     <p>
-        <button onclick="
-    calculation = updateCalculation(calculation, '0');
-    ">0</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '0');
+        ">0</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, '.');
-    ">.</button>
+        <button class="btn" onclick="
+        calculation = updateCalculation(calculation, '.');
+        ">.</button>
 
-        <button onclick=" 
-    calculation = evalCalculation(calculation);
-    ">=</button>
+        <button class="btn" onclick=" 
+        calculation = evalCalculation(calculation);
+        ">=</button>
 
-        <button onclick="
-    calculation = updateCalculation(calculation, ' / ');
-    ">/</button>
+        <button class="btn btn-orange" onclick="
+        calculation = updateCalculation(calculation, ' / ');
+        ">/</button>
     </p>
 
-    <button onclick="
+    <button class="btn" onclick="
     clearCalculation(calculation);
-  ">Clear</button>
+    ">Clear</button>
 
 
     <script>
         let calculation = localStorage.getItem('calculation') || '';
-        
+
         const calculationPara = document.querySelector('.js-calculation');
         calculationPara.innerHTML = calculation;
 
@@ -111,10 +111,9 @@
         function clearCalculation(claculation) {
             calculation = '';
             localStorage.removeItem('calculation');
-            calculationPara.innerHTML = 0;
+            calculationPara.innerHTML = '0';
             return calculation;
         }
-
 
 
     </script>

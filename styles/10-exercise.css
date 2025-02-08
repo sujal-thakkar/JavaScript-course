@@ -1,0 +1,67 @@
+/* 1 */
+.cart-btn {
+    background-color: rgb(255, 216, 20);
+    font-size: 16px;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.req-btn {
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+}
+.schedule-later-btn {
+    background-color: rgb(230, 230, 230);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+
+/* 3 */
+.ex-3-buttons {
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+}
+.is-toggled {
+    background-color: rgb(230, 230, 230);
+    color:#000;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* 4 */
+.ex-4-buttons {
+    background-color: rgb(230, 230, 230);
+    color:#000;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+}
+.is-toggled-dark {
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+}

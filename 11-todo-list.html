@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <!-- todo 1 -->
+    <p>Todo List Practice 1</p>
+    <input placeholder="Todo name" class="js-todo-input" onkeydown="
+        if(event.key === 'Enter') addTodo();
+    ">
+    <button onclick="addTodo()">Add</button>
+
+    <!-- todo 2 -->
+    <p>Todo List Practice 2</p>
+    <input 
+        type="text" 
+        placeholder="Todo name" 
+        class="js-todo-input-2" 
+        onkeydown="if(event.key === 'Enter') printTodo();"
+    >
+    <button 
+        onclick="printTodo();">
+        Add
+    </button>
+    <div class="js-todos"></div>
+    
+    
+    
+    <script src="scripts/11-todo-list.js"></script>
+</body>
+
+</html>

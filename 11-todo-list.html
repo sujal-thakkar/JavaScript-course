@@ -5,33 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="styles/11-todo-list-all.css">
 </head>
 
-<body style="font-family: Arial, Helvetica, sans-serif;">
+<body>
     <!-- todo 1 -->
-    <p>Todo List Practice 1</p>
-    <input placeholder="Todo name" class="js-todo-input" onkeydown="
-        if(event.key === 'Enter') addTodo();
-    ">
-    <button onclick="addTodo()">Add</button>
-
+    <div class="todo-1">
+        <p>Todo List Practice 1</p>
+        <input placeholder="Todo name" class="js-todo-input" onkeydown="
+            if(event.key === 'Enter') addTodo();
+        ">
+        <button onclick="addTodo()">Add</button>
+    </div>
+    
+ 
     <!-- todo 2 -->
-    <p>Todo List Practice 2</p>
-    <input 
-        type="text" 
-        placeholder="Todo name" 
-        class="js-todo-input-2" 
-        onkeydown="if(event.key === 'Enter') printTodo();"
-    >
-    <button 
-        onclick="printTodo();">
-        Add
-    </button>
-    <div class="js-todos"></div>
+    <div class="todo-2">
+        <p>Todo List Practice 2</p>
+        <input 
+            type="text" 
+            placeholder="Todo name" 
+            class="js-todo-input-2" 
+            onkeydown="if(event.key === 'Enter') printTodo();"
+        >
+        <button 
+            onclick="printTodo();">
+            Add
+        </button>
+        <div class="js-todos"></div>
+    </div>
+    
+
+    <!-- todo final -->
+    <div class="todo-final">
+        <p>Todo List</p>
+        <input 
+            type="text" 
+            placeholder="Todo name" 
+            class="js-todo-input-3 todo-input" 
+            onkeydown="if(event.key === 'Enter') printTodo2();"
+        >
+        <input type="date" class="js-todo-date todo-due-date">
+        <button 
+            class="add-btn"
+            onclick="printTodo2();">
+            Add
+        </button>
+
+        <div class="js-todos2"></div>
+    </div>
+    
     
     
     
     <script src="scripts/11-todo-list.js"></script>
+    <script src="scripts/11-todo-list-final.js"></script>
 </body>
 
 </html>

@@ -13,18 +13,19 @@ function addTodo() {
 
 // todo 2
 const todoList2 = [];
+const todoInput2 = document.querySelector('.js-todo-input-2');
+const todos = document.querySelector('.js-todos');
 
 function printTodo() {
-    const todoInput2 = document.querySelector('.js-todo-input-2');
-    const todos = document.querySelector('.js-todos');
-    
-    todoList2.push(todoInput2.value);
+    if(todoInput2.value !== '') todoList2.push(todoInput2.value);
     let todosHTML = '';
-    for(const todo of todoList2) {
-        const html = `<p>${todo}</p>`;
+    for(let i=0; i<todoList2.length; i++) {
+        const todo = todoList2[i];
+        const html = `
+        <p>${todo}</p>`;
         todosHTML += html;
     }
     todos.innerHTML = todosHTML;
-    // console.log(todosHTML);
     todoInput2.value = '';
 }
+

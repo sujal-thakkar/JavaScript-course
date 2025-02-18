@@ -37,23 +37,24 @@
     
 
     <!-- todo final -->
-    <p>Todo List</p>
-    <div class="todo-input-grid">
-        <input 
-            type="text" 
-            placeholder="Todo name" 
-            class="js-todo-input-3 todo-input" 
-            onkeydown="if(event.key === 'Enter') printTodo2();"
-        >
-        <input type="date" class="js-todo-date todo-due-date">
-        <button 
-            class="add-btn"
-            onclick="printTodo2();">
-            Add
-        </button>
+    <div class="todo-final">
+        <p>Todo List</p>
+        <div class="todo-input-grid">
+            <input 
+                type="text" 
+                placeholder="Todo name" 
+                class="js-todo-input-3 todo-input" 
+                onkeydown="if(event.key === 'Enter') printTodo2();"
+            >
+            <input type="date" class="js-todo-date todo-due-date">
+            <button 
+                class="add-btn"
+                onclick="printTodo2();">
+                Add
+            </button>
+        </div>
+        <div class="js-todos2 todo-grid"></div>
     </div>
-    <div class="js-todos2 todo-grid"></div>
-    
     
     
     

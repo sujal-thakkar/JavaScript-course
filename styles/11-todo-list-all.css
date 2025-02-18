@@ -5,34 +5,42 @@ body {
 .todo-2, .todo-final {
     margin-top: 50px;
 }
-.todo-input {
+.todo-input, .todo-due-date {
     font-size: 15px;
-    padding: 8px 10px; 
-}
-.todo-due-date {
-    font-size: 15px;
-    padding: 8px;
-    margin-left: 5px;
+    padding: 8px; 
 }
 .add-btn {
     font-size: 15px;
-    padding: 10px 35px;
-    margin-left: 5px;
+    /* padding: 10px 25px; */
     border: none;
     color: #fff;
     background-color: #008000;
     cursor: pointer;
 }
-.todo-text {
-    margin-right: 150px;
+.add-btn:hover {
+    background-color: #008000be;
 }
 .dlt-btn {
     font-size: 15px;
-    padding: 10px 27px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: none;
     color: #fff;
     background-color: #8b0000;
-    margin-left: 65px;
     cursor: pointer;
+}
+.dlt-btn:hover {
+    background-color: #aa0000;
+}
+.todo-grid, .todo-input-grid {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+}
+.todo-input-grid {
+    margin-bottom: 30px;
+    align-items: stretch;
 }
 

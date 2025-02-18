@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/11x.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="todo-final">
+        <header>Todo List</header>
+        <div class="todo-input-grid">
+            <input 
+                type="text" 
+                placeholder="Todo name" 
+                class="js-todo-input todo-input" 
+                onkeydown="if(event.key === 'Enter') printTodo();"
+            >
+            <input type="date" class="js-todo-date todo-due-date">
+            <input type="time" class="js-todo-time todo-due-time">
+            <button 
+                class="add-btn"
+                onclick="printTodo();">
+                Add
+            </button>
+        </div>
+        
+        <div class="js-todos todo-grid"></div>
+    </div>
+
+
+    <script src="scripts/11x.js"></script>
+</body>
+</html>

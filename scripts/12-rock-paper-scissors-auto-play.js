@@ -81,6 +81,7 @@ function autoplay() {
             const computerMove = pickMove(moves);
             printScore(myMove, computerMove, score);
         }, 1000)
+        console.log(intervalId);
         autoPlay.innerText = 'Stop Play';
     }
     else {

@@ -6,31 +6,89 @@
     <title>advanced functions</title>
 </head>
 <body>
-    
-
+    <h1>Advnced Functions</h1>
+    <button onclick="" class="js-btn">Click</button>
 
 
     <script>
+        const btn = document.querySelector('.js-btn');
+
+        const eventListener = () => {
+            console.log('clicked');
+        };
+        btn.addEventListener('click', eventListener);
+
+        btn.removeEventListener('click', eventListener);
+
+        btn.addEventListener('click', () => {
+            console.log('click2');
+        });
+
+
         /* function run(param) {
             param();
-        }
+        }j
         //callback
         run(function() {
             console.log('sujal');
         }); */
 
         //callback function eg. (setTimeout())
-        setTimeout(function() {
+        /* setTimeout(function() {
             console.log('winter is coming..')
-        }, 3000);
+        }, 3000); */
 
-        let i = 1;
-        /* setInterval(function() {
+        /* let i = 1;
+        setInterval(function() {
             console.log(i);
             i++;
         }, 3000) */
 
+        /* [
+            'sujal thakkar',
+            'sampriti chel',
+            'adrija dey'
+        ].forEach((value, index) => {
+            // if(value == 'sujal thakkar') return; // used as 'continue' in traditional for-loop
+            console.log(index, value);
+        })
+        // unfortunately, we can't use 'break' feature to exit early from 'for each' loop. to use break, we need to use traditional for loop. */
 
+        // type of functions:
+        /* const arrowFunc = () => {
+            console.log('Sujal Thakkar');
+        };
+        arrowFunc();
+
+        function normalFunc() {
+            console.log('Sujal thakkar');
+        }
+
+        const anotherTypeOfFunc = function() {
+            console.log('Sujal thakkar');
+        } */
+
+        /* const displayName = name => { // we can remove '()' when giving only 1 param
+            console.log(`your name is: ${name}`);
+        }
+        displayName('Sujal');
+
+        const oneLiner = () => 'this is an one-liner function';
+        console.log(oneLiner());
+
+        //using arrow funcs inside object:
+        const obj = {
+            method: () => {
+
+            }, //we could do this but there's a shorthand method that we can use inside objects, 
+
+            method() {
+
+            } //it's recommended to use this syntax instead, than arrow funcs.
+        } */
+
+
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 12 Exercise</title>
+    <style>
+        .status-para {
+            margin-left: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body style="background-color: #1f1f1f; color: #fff;">
+    <div>
+        <button onclick="changeName()">Start</button>
+        <button class="js-cart-btn" onclick="displayStatus()">Add to cart</button>
+        <div class="status-para">Added</div>
+    </div>
+
+    <button class="js-add-btn" onclick="addMsg()">Add</button>
+    <button class="js-remove-btn" onclick="rmvMsg()">Remove</button>
+
+    <script>
+        //1
+        /* const add = function() {
+            for(let i=0; i<2; i++) {
+                console.log(2+3);
+            }
+        };
+        add(); */
+
+        //2
+        /* function runTwice(fun) {
+            for(let i=0; i<2; i++) fun();
+        }
+        runTwice(function() {
+            console.log('12b');
+        }) */
+
+        //3
+        /* const btn = document.querySelector('button');
+        function changeName() {
+            setTimeout(function() {
+                btn.innerHTML = 'Finished'
+            }, 1000);
+        } */
+
+        //4
+        const btn = document.querySelector('button');
+        function changeName() {
+            setTimeout(function() {
+                btn.innerHTML = 'Finished'
+                setTimeout(function() {
+                    btn.innerHTML = 'Start';
+                }, 1000)
+            }, 1000);
+            btn.innerHTML = 'Loading...'
+        }
+
+        //5
+        const cartBtn = document.querySelector('.js-cart-btn');
+        const statusPara = document.querySelector('.status-para');
+        let timeoutId;
+        let flag = 0;
+        function displayStatus() {
+            if(flag === 1) {
+                clearTimeout(timeoutId);
+            }
+            statusPara.style.display = 'block';
+            timeoutId = setTimeout(function() {
+                statusPara.style.display = 'none';
+                flag = 1;
+            }, 2000)
+        }
+
+        //6
+        /* let msgCnt = 0;
+        setInterval(function() {
+            document.title = `(${msgCnt}) New Messages`
+            msgCnt++;
+        }, 1000) */
+
+        //7
+        const addBtn = document.querySelector('.js-add-btn');
+        const removeBtn = document.querySelector('.js-remove-btn');
+        let number = 0;
+        function addMsg() {
+            ++number;
+            document.title = `(${number}) New Messages`;
+        }
+        function rmvMsg() {
+            if(number > 0) --number;
+            if(number > 0) document.title = `(${number}) New Messages`
+            else document.title = 'Lesson 12 Exercise';
+        }
+    </script>
+</body>
+</html>

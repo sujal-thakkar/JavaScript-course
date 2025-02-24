@@ -12,19 +12,19 @@
     <p class="title">Rock Paper Scissors Game</p>
 
     <p>
-        <button onclick="
-            rock();"
-            class="move-btn"><img src="images/rock.png" alt="rock" class="move-icon">
+        <button 
+            class="move-btn js-rock-btn">
+            <img src="images/rock.png" alt="rock" class="move-icon">
         </button>
 
-        <button onclick="
-            paper();"
-            class="move-btn"><img src="images/paper.png" alt="paper" class="move-icon">
+        <button 
+            class="move-btn js-paper-btn">
+            <img src="images/paper.png" alt="paper" class="move-icon">
         </button>
 
-        <button onclick="
-            scissors();"
-            class="move-btn"><img src="images/scissors.png" alt="scissors" class="move-icon">
+        <button 
+            class="move-btn js-scissors-btn">
+            <img src="images/scissors.png" alt="scissors" class="move-icon">
         </button>
     </p>
 
@@ -32,15 +32,9 @@
     <p class="js-moves"></p>
     <p class="js-score score"></p>
 
-    <button onclick="
-        resetScore(score);
-        " class="reset-btn">Reset Score
-    </button>
+    <button class="reset-btn js-reset-btn">Reset Score</button>
 
-    <button onclick="
-        autoplay();
-        " class="js-autoplay autoplay-btn">Auto Play
-    </button>
+    <button class="js-autoplay autoplay-btn js-autoplay-btn">Auto Play</button>
 
     <div class="js-reset-para reset-para">Score reset</div>
 

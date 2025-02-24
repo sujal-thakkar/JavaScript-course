@@ -62,6 +62,12 @@ function displayResetPara() {
         resetPara.style.display = 'none';
     }, 2000);
 }
+
+const resetBtn = document.querySelector('.js-reset-btn');
+resetBtn.addEventListener('click', () => {
+    resetScore(score);
+})
+
 function resetScore(score) {
     displayResetPara();
     score.wins = 0;
@@ -73,15 +79,23 @@ function resetScore(score) {
     scorePara.innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
 }
 
+
+const autoplayBtn = document.querySelector('.js-autoplay-btn');
+autoplayBtn.addEventListener('click', () => {
+    autoplay();
+})
+
 let intervalId;
+/* const autoPlay = () => {
+    
+} */
 function autoplay() {
     if(autoPlay.innerText === 'Auto Play') {
-        intervalId = setInterval(function() {
+        intervalId = setInterval(() => {
             const myMove = pickMove(moves);
             const computerMove = pickMove(moves);
             printScore(myMove, computerMove, score);
         }, 1000)
-        console.log(intervalId);
         autoPlay.innerText = 'Stop Play';
     }
     else {
@@ -89,6 +103,27 @@ function autoplay() {
         autoPlay.innerText = 'Auto Play';
     }
 }
+
+const rockBtn = document.querySelector('.js-rock-btn');
+rockBtn.addEventListener('click', () => {
+    rock();
+});
+
+const paperBtn = document.querySelector('.js-paper-btn');
+paperBtn.addEventListener('click', () => {
+    paper();
+});
+
+const scissorsBtn = document.querySelector('.js-scissors-btn');
+scissorsBtn.addEventListener('click', () => {
+    scissors();
+});
+
+document.body.addEventListener('keydown', (event) => {
+    if(event.key === 'r') rock();
+    else if(event.key === 'p') paper();
+    else if(event.key === 's') scissors();
+});
 
 function rock() {
     let computerMove = pickMove(moves);

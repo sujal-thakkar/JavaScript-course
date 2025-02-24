@@ -6,6 +6,16 @@ const todoTime = document.querySelector('.js-todo-time');
 
 const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 todos.innerHTML = localStorage.getItem('todosHTML') || '';
+
+todoInput.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter') printTodo();
+});
+
+const addBtn = document.querySelector('.js-add-btn');
+addBtn.addEventListener('click', () => {
+    printTodo();
+})
+
 function printTodo() {
     if(todoInput.value !== '') {
         todoList.push({
@@ -21,7 +31,7 @@ function printTodo() {
         <div>${todo.dueDate}</div>
         <div>${todo.dueTime}</div>
         <button 
-        class="dlt-btn"
+        class="dlt-btn js-dlt-btn"
         onclick="
         todoList.splice(${index}, 1);
         printTodo();
@@ -31,10 +41,21 @@ function printTodo() {
         `;
         todosHTML += html;
     })
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-    localStorage.setItem('todosHTML', todosHTML);
+    
     todos.innerHTML = todosHTML;
+
+    const dltBtn = document.querySelectorAll('.js-dlt-btn');
+    console.log(dltBtn);
+
+    // dltBtn.addEventListener('click', () => {
+    //     todoList.spilce(index, 1);
+    //     printTodo();
+    // })
+    
     todoInput.value = '';
     todoDate.value = '';
     todoTime.value = '';
+
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    localStorage.setItem('todosHTML', todosHTML);
 }

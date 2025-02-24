@@ -13,16 +13,11 @@
             <input 
                 type="text" 
                 placeholder="Todo name" 
-                class="js-todo-input todo-input" 
-                onkeydown="if(event.key === 'Enter') printTodo();"
+                class="js-todo-input todo-input"
             >
             <input type="date" class="js-todo-date todo-due-date">
             <input type="time" class="js-todo-time todo-due-time">
-            <button 
-                class="add-btn"
-                onclick="printTodo();">
-                Add
-            </button>
+            <button class="js-add-btn add-btn">Add</button>
         </div>
         
         <div class="js-todos todo-grid"></div>

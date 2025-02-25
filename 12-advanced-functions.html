@@ -11,7 +11,7 @@
 
 
     <script>
-        const btn = document.querySelector('.js-btn');
+        /* const btn = document.querySelector('.js-btn');
 
         const eventListener = () => {
             console.log('clicked');
@@ -22,7 +22,7 @@
 
         btn.addEventListener('click', () => {
             console.log('click2');
-        });
+        }); */
 
 
         /* function run(param) {
@@ -87,7 +87,27 @@
             } //it's recommended to use this syntax instead, than arrow funcs.
         } */
 
+        console.log([1, -1, -5, 6, 4, 0]
+        .filter((value, index) => {
+            /* if(value >= 0) return true;
+            else return false; */
+            return value >= 0;
+        }));
 
+        console.log([1, 2, 3].map((value, index) => {
+            return value*2
+        }));
+        //compact version
+        console.log([1, 2, 3].map(value => value * 2));
+
+        //tricky qs
+        //what will be the output? guess
+        for(var i=0; i<4; i++) {
+            const log = () => {
+                console.log(i);
+            }
+            setTimeout(log, 100);
+        }
         
     </script>
 </body>

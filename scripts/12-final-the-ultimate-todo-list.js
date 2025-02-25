@@ -25,18 +25,13 @@ function printTodo() {
         });
     }
     let todosHTML = '';
-    todoList.forEach((todo, index) => {
+    todoList.forEach((todo) => {
         const html = `
         <div>${todo.name}</div>
         <div>${todo.dueDate}</div>
         <div>${todo.dueTime}</div>
-        <button 
-        class="dlt-btn js-dlt-btn"
-        onclick="
-        todoList.splice(${index}, 1);
-        printTodo();
-        ">
-        Delete
+        <button class="dlt-btn js-dlt-btn">
+            Delete
         </button>
         `;
         todosHTML += html;
@@ -44,13 +39,14 @@ function printTodo() {
     
     todos.innerHTML = todosHTML;
 
-    const dltBtn = document.querySelectorAll('.js-dlt-btn');
-    console.log(dltBtn);
+    const dltBtns = document.querySelectorAll('.js-dlt-btn')
 
-    // dltBtn.addEventListener('click', () => {
-    //     todoList.spilce(index, 1);
-    //     printTodo();
-    // })
+    dltBtns.forEach((dltBtn, index) => {
+        dltBtn.addEventListener('click', () => {
+            todoList.splice(index, 1);
+            printTodo();
+        })
+    });
     
     todoInput.value = '';
     todoDate.value = '';

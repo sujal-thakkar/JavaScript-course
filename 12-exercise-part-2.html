@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson 12 exercise part 2</title>
+</head>
+<body style="background-color: #1f1f1f; color: #fff;">
+    
+
+
+    <script>
+        //1
+        const multiply = (a,b) => {
+            return a * b;
+        }
+        console.log(multiply(2,3))
+        console.log(multiply(7,10))
+        
+        //2
+        const multiply2 = (a,b) => a*b; //one liner
+        console.log(multiply2(6,4));
+
+        //3
+        const countPositive = (nums) => {
+            let count = 0;
+            nums.forEach(element => {
+                if(element >= 0) count++;
+            });
+
+            return count;
+        }
+        console.log(countPositive([-2, 3, -5, 7, 10]));
+
+        //4
+        const addNum = (array, num) => {
+            const ans = array.map(value => value + num);
+
+            return ans;
+        }
+        console.log(addNum([2,5,8,3], 6));
+        console.log(addNum([-2,-1,0,99], 2));
+
+        //5
+        const removeEgg = (foods) => {
+            const ans = foods.filter(food => food !== 'egg');
+
+            return ans;
+        }
+        console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+        //6
+        const remove2Egg = (foods) => {
+            let count = 2;
+            const ans = foods.filter((food) => {
+                if(food === 'egg' && count > 0) {
+                    count--;
+                    return false;
+                }
+                else return true;
+            })
+            return ans;
+        };
+        console.log(remove2Egg(['egg','apple','egg','egg','ham']))
+    </script>
+    </body>
+</html>

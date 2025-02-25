@@ -40,18 +40,18 @@
 
         //3
         /* const btn = document.querySelector('button');
-        function changeName() {
-            setTimeout(function() {
+        const changeName = () => {
+            setTimeout(() => {
                 btn.innerHTML = 'Finished'
             }, 1000);
         } */
 
         //4
         const btn = document.querySelector('button');
-        function changeName() {
-            setTimeout(function() {
+        const changeName = () => {
+            setTimeout(() => {
                 btn.innerHTML = 'Finished'
-                setTimeout(function() {
+                setTimeout(() => {
                     btn.innerHTML = 'Start';
                 }, 1000)
             }, 1000);
@@ -63,12 +63,12 @@
         const statusPara = document.querySelector('.status-para');
         let timeoutId;
         let flag = 0;
-        function displayStatus() {
+        const displayStatus = () => {
             if(flag === 1) {
                 clearTimeout(timeoutId);
             }
             statusPara.style.display = 'block';
-            timeoutId = setTimeout(function() {
+            timeoutId = setTimeout(() => {
                 statusPara.style.display = 'none';
                 flag = 1;
             }, 2000)
@@ -76,7 +76,7 @@
 
         //6
         /* let msgCnt = 0;
-        setInterval(function() {
+        setInterval(() => {
             document.title = `(${msgCnt}) New Messages`
             msgCnt++;
         }, 1000) */

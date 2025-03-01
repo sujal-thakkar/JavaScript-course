@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: #1f1f1f; color: #fff;">
     <div>
-        <button onclick="changeName()">Start</button>
+        <button class="js-start-btn">Start</button>
         <button class="js-cart-btn" onclick="displayStatus()">Add to cart</button>
         <div class="status-para">Added</div>
     </div>
@@ -47,8 +47,11 @@
         } */
 
         //4
-        const btn = document.querySelector('button');
-        const changeName = () => {
+        const btn = document.querySelector('.js-start-btn');
+        btn.addEventListener('click', () => {
+            changeName();
+        });
+        function changeName() {
             setTimeout(() => {
                 btn.innerHTML = 'Finished'
                 setTimeout(() => {
@@ -57,6 +60,7 @@
             }, 1000);
             btn.innerHTML = 'Loading...'
         }
+        
 
         //5
         const cartBtn = document.querySelector('.js-cart-btn');

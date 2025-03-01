@@ -56,6 +56,17 @@ function printScore(myMove, computerMove, score) {
     scorePara.innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
 }
 
+const resetValidationPrompt = document.querySelector('.js-reset-conf');
+const resetYesBtn = document.querySelector('.js-reset-yes-btn');
+const resetNoBtn = document.querySelector('.js-reset-no-btn');
+/* function validateReset() {
+    let validate = 0;
+    resetYesBtn.addEventListener('click', () => {
+        validate = 1;
+    })
+    return validate;
+} */
+
 function displayResetPara() {
     resetPara.style.display = 'block';
     setTimeout(function() {
@@ -63,9 +74,20 @@ function displayResetPara() {
     }, 2000);
 }
 
+function validateReset() {
+    resetValidationPrompt.style.display = 'block';
+    let validate = 0;
+    resetYesBtn.addEventListener('click', () => {
+        resetScore(score);
+        resetValidationPrompt.style.display = 'none';
+    })
+    resetNoBtn.addEventListener('click', () => {
+        resetValidationPrompt.style.display = 'none';
+    })
+}
 const resetBtn = document.querySelector('.js-reset-btn');
 resetBtn.addEventListener('click', () => {
-    resetScore(score);
+    validateReset();
 })
 
 function resetScore(score) {
@@ -78,7 +100,6 @@ function resetScore(score) {
     movesPara.innerHTML = '';
     scorePara.innerHTML = `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
 }
-
 
 const autoplayBtn = document.querySelector('.js-autoplay-btn');
 autoplayBtn.addEventListener('click', () => {
@@ -123,6 +144,8 @@ document.body.addEventListener('keydown', (event) => {
     if(event.key === 'r') rock();
     else if(event.key === 'p') paper();
     else if(event.key === 's') scissors();
+    else if(event.key === 'a') autoplay();
+    else if(event.key === 'Backspace') validateReset();
 });
 
 function rock() {

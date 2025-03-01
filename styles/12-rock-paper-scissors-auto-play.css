@@ -63,4 +63,24 @@ body {
     color: rgb(0, 231, 0);
     display: none;
   }
+  .reset-conf-prompt {
+    margin-top: 30px;
+    border: 2px solid white;
+    width: fit-content;
+    padding: 10px 20px;
+    background: #f9b926;
+    color: #000000;
+    display: none;
+  }
+  .reset-yes-btn, .reset-no-btn {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  .reset-yes-btn {
+    margin-left: 10px;
+    background-color: #00a600;
+  }
+  .reset-no-btn {
+    background-color: #d70000;
+  }
   
